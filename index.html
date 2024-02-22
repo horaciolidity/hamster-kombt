@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Launchpad Token PORTAL</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <title>Launchpad Token PORTAL</title>
     <style>
         body {
             margin: 0;
@@ -73,19 +76,20 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Launchpad <span>Token PORTAL</span></h1>
+      <header class="header">
+        <h1>Launchpad Token PORTAL</h1>
+        <div>Launchpad Fecha: 29/02/2024</div>
     </header>
     <div class="container">
-        <div class="info">Launchpad Fecha: 29/02/2024</div>
-        <div class="info">Compra 1 ETH y recibe 10,000 tokens PORTAL</div>
         <input type="email" id="email" placeholder="Ingresa tu correo electrónico">
         <button id="enviar">Registrar para Presale y Airdrop</button>
         <button id="conectarMetaMask">Conectar MetaMask (Red Ethereum)</button>
         <div id="contador"></div>
-        <input type="text" id="walletAddress" placeholder="Tu dirección de Wallet">
-        <button id="generarReferido">Generar Enlace de Referido</button>
-        <div id="enlaceReferido"></div>
+        <hr>
+        <h2>Genera tu enlace de referido</h2>
+        <input type="text" id="walletAddress" placeholder="Tu dirección de wallet">
+        <button id="generarReferido">Generar enlace de referido</button>
+        <p id="enlaceReferido"></p>
     </div>
     <script>
         // Aquí iría el script para el contador, conectar MetaMask y generar enlace de referido
