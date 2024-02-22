@@ -1,77 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Launchpad del token PORTAL. Participa en la presale y obtén tokens con descuento.">
     <title>Launchpad Token PORTAL</title>
-    <meta property="og:title" content="Launchpad Token PORTAL">
-    <meta property="og:description" content="Participa en la presale y obtén tokens PORTAL con descuento.">
-    <meta property="og:image" content="https://tuSitioWeb.com/imagenPromocional.jpg">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             flex-direction: column;
         }
+
         .header h1 {
             color: #333;
         }
+
         .container {
-            background-color: white;
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        input[type=email] {
+
+        input[type=email], input[type=text] {
             padding: 10px;
             margin: 10px 0;
-            width: 80%;
+            width: 300px;
             border-radius: 5px;
             border: 1px solid #ddd;
         }
+
         button {
             padding: 10px 20px;
-            border-radius: 5px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
-        }
-        #enviar {
-            background-color: #4CAF50;
             color: white;
         }
+
+        #enviar {
+            background-color: #4CAF50;
+        }
+
         #conectarMetaMask {
             background-color: #000;
-            color: #fff;
-            margin-top: 10px;
+            margin: 10px 0;
         }
+
         #conectarMetaMask:hover {
-            background-color: #008000;
+            background-color: #555;
         }
-        .info-text {
-            margin-top: 10px;
-            color: #666;
-            font-size: 0.9rem;
+
+        #generarReferido {
+            background-color: #008CBA;
+        }
+
+        #contador {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-   <header class="header">
-        <h1>Launchpad <span>PORTAL Token</span></h1>
+    <header class="header">
+        <h1>Launchpad <span>Token PORTAL</span></h1>
     </header>
     <div class="container">
-        <div>El día del launchpad es el 29/02/2024</div>
+        <div class="info">Launchpad Fecha: 29/02/2024</div>
+        <div class="info">Compra 1 ETH y recibe 10,000 tokens PORTAL</div>
         <input type="email" id="email" placeholder="Ingresa tu correo electrónico">
         <button id="enviar">Registrar para Presale y Airdrop</button>
+        <button id="conectarMetaMask">Conectar MetaMask (Red Ethereum)</button>
         <div id="contador"></div>
         <input type="text" id="walletAddress" placeholder="Tu dirección de Wallet">
         <button id="generarReferido">Generar Enlace de Referido</button>
         <div id="enlaceReferido"></div>
     </div>
+    <script>
+        // Aquí iría el script para el contador, conectar MetaMask y generar enlace de referido
+    </script>
+</body>
+</html>
