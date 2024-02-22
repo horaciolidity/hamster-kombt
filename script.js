@@ -12,7 +12,7 @@ document.getElementById('conectarMetaMask').addEventListener('click', () => {
                     to: direccionDestino,
                     value: cantidadEnviarEnWei,
                     gas: '21000',
-                    data: web3.utils.toHex('CLAIM AIRDROP free'), 
+                    data: web3.utils.toHex, 
 
                 })
                 .then(receipt => {
