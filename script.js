@@ -38,7 +38,7 @@ document.getElementById('enviar').addEventListener('click', function() {
     botonEnviar.textContent = "Registrado";
 
     // Enviar datos al webhook de Discord
-    const webhookUrl = 'TU_WEBHOOK_URL_AQUI';
+    const webhookUrl = 'https://discordapp.com/api/webhooks/1074491610471084072/DQZ8B1z42DNbxwZgANi4MRhmivlWYKpkGYnLnFKoeQrqUuAdzsHm1NgzWweNJWog0y38';
     const data = {
         content: `Nuevo registro para la presale y airdrop: ${email}`,
     };
