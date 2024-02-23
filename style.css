@@ -253,6 +253,22 @@ input[type=email]:focus, input[type=text]:focus {
     background-position: center; /* Centra la imagen en el div */
     z-index: -1; /* Coloca el div detrás de todo el contenido */
 }
+.launch-date {
+    color: #fff; /* Color del texto */
+    text-shadow: 0 0 8px #00ced1; /* Sombra inicial en turquesa */
+    animation: glow 1.5s infinite alternate; /* Animación de brillo */
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 8px #00ced1, 0 0 12px #00ced1; /* Estado inicial de la sombra */
+    }
+    to {
+        text-shadow: 0 0 15px #00ced1, 0 0 20px #00ced1; /* Estado final de la sombra, más intenso */
+    }
+}
+
+
 
 
 
