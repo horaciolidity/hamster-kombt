@@ -121,25 +121,31 @@ document.getElementById('generarReferido').addEventListener('click', function() 
 
 
 
+// Simulación de las transacciones
 const transactionsContainer = document.getElementById('transactions');
-const addresses = ["0x123...", "0x456...", "0x789...", /* Añade más direcciones acortadas */];
+const addresses = ["0x123...", "0x456...", "0x789..."]; // Añade más direcciones acortadas según necesites
 const liquidityBar = document.getElementById('liquidityBar');
 
 function addTransaction() {
-  if(transactionsContainer.children.length >= 7) {
+  // Asegurar que solo se muestren las últimas 3 transacciones
+  if (transactionsContainer.children.length >= 3) {
     transactionsContainer.removeChild(transactionsContainer.lastChild);
   }
+
   const transactionElem = document.createElement('div');
   transactionElem.classList.add('transaction');
   const randomAddressIndex = Math.floor(Math.random() * addresses.length);
   const randomEth = (Math.random() * 5).toFixed(3);
-  transactionElem.textContent = `Compra: ${randomEth} ETH en ${addresses[randomAddressIndex]}`;
+  transactionElem.innerHTML = `Compra: ${randomEth} ETH en ${addresses[randomAddressIndex]}`;
   transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
+
+  // Aplicar animación a la última transacción agregada
+  transactionElem.style.animation = 'ascender 0.5s ease-out';
 }
 
 // Actualiza la barra de liquidez
 function updateLiquidityBar() {
-  const newWidth = 10 + Math.random() * 5; // Entre 10% y 15%
+  const newWidth = 10 + Math.random() * 5; // Oscila entre 10% y 15%
   liquidityBar.style.width = `${newWidth}%`;
 }
 
