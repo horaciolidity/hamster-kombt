@@ -1,44 +1,38 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif; /* Cambiamos la fuente a Poppins para un look más moderno */
-    background-color: #121212; /* Fondo oscuro */
-    color: #e0e0e0; /* Texto claro para contraste */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-}
-.header {
-    width: 100%; /* Asegura que el header ocupe todo el ancho */
-    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
-    padding: 0 20px; /* Agrega un poco de padding a los lados si es necesario */
-    overflow: hidden; /* Asegúrate de que el contenido no desborde */
-}
-
-.header h1 {
-    color: #E8E8E8; /* Color claro para destacar el título principal */
-    text-align: center;
-    font-size: 2.5em; /* Tamaño grande para darle importancia */
-    margin-bottom: 0.5em; /* Espacio debajo del título para separarlo del subtítulo */
-}
-
-.header h2 {
-    color: #CCCCCC; /* Un gris más suave para diferenciar del título principal */
-    text-align: center;
-    font-size: 2em; /* Tamaño ligeramente más pequeño que el título principal */
-    margin-bottom: 0.25em; /* Espacio reducido debajo del subtítulo */
-}
-
-.header div {
-    color: #AAAAAA; /* Un gris aún más suave para los detalles, como la fecha */
-    text-align: center;
-    font-size: 1.25em; /* Un tamaño adecuado para la información complementaria */
-    margin-top: 10px; /* Espacio por encima para no estar demasiado pegado al subtítulo */
-    font-weight: 400; /* Un peso de fuente normal para no competir con los títulos */
-}
-
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #121212;
+        color: #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+ .header {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        text-align: center;
+    }
+    .header h1, .header h2, .header div {
+        margin: 0 auto; /* Asegura centrado y evita el corte */
+        width: fit-content; /* Ajusta el ancho al contenido */
+    }
+    .header h1 {
+        color: #8A2BE2; /* Ajuste a un violeta vibrante */
+        font-size: 2.5em;
+    }
+    .header h2 {
+        color: #7B68EE; /* Ajuste a un violeta más claro */
+        font-size: 2em;
+    }
+    .header div {
+        color: #DDA0DD; /* Ajuste a un violeta pastel */
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
 
 
 .container {
