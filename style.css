@@ -271,6 +271,36 @@ input[type=email]:focus, input[type=text]:focus {
         text-shadow: 0 0 15px #00ced1, 0 0 20px #00ced1; /* Estado final de la sombra, más intenso */
     }
 }
+.dashboard {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 600px;
+  margin: auto;
+}
+
+.transactions, .liquidity-bar-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.liquidity-bar-container {
+  position: relative;
+  height: 30px;
+}
+
+.liquidity-bar {
+  background-color: #4CAF50;
+  height: 100%;
+  width: 0%;
+  border-radius: 5px;
+  transition: width 2s ease;
+}
+
+.transaction {
+  margin-bottom: 5px;
+}
 
 
 
