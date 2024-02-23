@@ -271,39 +271,75 @@ input[type=email]:focus, input[type=text]:focus {
         text-shadow: 0 0 15px #00ced1, 0 0 20px #00ced1; /* Estado final de la sombra, más intenso */
     }
 }
+/* Estilos Generales */
 .dashboard {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  max-width: 600px;
-  margin: auto;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.transactions, .liquidity-bar-container {
+h2 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el Panel de Transacciones */
+.transactions {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 15px;
   margin-top: 10px;
   border-radius: 5px;
+  background: linear-gradient(to right, #ffffff, #f1f1f1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.transaction:hover {
+  transform: translateY(-2px);
+}
+
+/* Estilos para la Barra de Pool de Liquidez */
 .liquidity-bar-container {
   position: relative;
-  height: 30px;
+  height: 40px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
 }
 
 .liquidity-bar {
   background-color: #4CAF50;
+  background-image: linear-gradient(45deg, #4CAF50 25%, #67b548 25%, #67b548 50%, #4CAF50 50%, #4CAF50 75%, #67b548 75%, #67b548);
+  background-size: 40px 40px;
   height: 100%;
   width: 0%;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: width 2s ease;
+  animation: moveBackground 2s linear infinite;
 }
 
-.transaction {
-  margin-bottom: 5px;
+@keyframes moveBackground {
+  from {background-position: 0 0;}
+  to {background-position: 40px 0;}
 }
-
-
-
-
-
-
