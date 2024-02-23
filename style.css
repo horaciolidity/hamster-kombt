@@ -98,3 +98,32 @@ input[type=email]:focus, input[type=text]:focus {
 :-moz-placeholder { /* Firefox 18- */
     color: #ddd;
 }
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los elementos del temporizador */
+    padding: 20px;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+.time-box {
+    text-align: center;
+    background-color: #333; /* Color de fondo de cada caja del tiempo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+}
+
+.time-number {
+    color: #BB86FC; /* Color vibrante para los números */
+    font-size: 2rem; /* Tamaño grande para fácil lectura */
+    font-weight: 500; /* Peso de la fuente */
+    margin: 0; /* Remover margen predeterminado */
+}
+
+.time-box span {
+    color: #e0e0e0; /* Color claro para el texto */
+    font-weight: 400; /* Peso normal de la fuente */
+}
+
+
