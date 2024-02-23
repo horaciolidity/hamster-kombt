@@ -29,7 +29,7 @@ body {
 input[type=email], input[type=text] {
     padding: 15px;
     margin: 10px 0;
-    width: calc(70% - 30px); /* Ajuste para que se adapte mejor al contenedor */
+    width: calc(100% - 30px); /* Ajuste para que se adapte mejor al contenedor */
     border-radius: 8px;
     border: 1px solid #333;
     background-color: #333; /* Fondo oscuro para inputs */
