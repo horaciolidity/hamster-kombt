@@ -12,10 +12,24 @@ body {
 }
 
 .header h1 {
-    color: #BB86FC; /* Color más vibrante para el título */
-    margin-bottom: 32px;
-    font-size: 2.5rem; /* Tamaño de fuente más grande */
+    color: #fff; /* Ajusta el color según tu preferencia */
+    text-align: center;
+    font-size: 2.5em; /* Ajusta el tamaño según necesites */
 }
+
+.header h2 {
+    color: #ccc; /* Ajusta el color para que se distinga del H1 */
+    text-align: center;
+    font-size: 2em; /* Ajusta el tamaño según necesites */
+}
+
+.header div {
+    color: #aaa; /* Ajusta el color según tu preferencia */
+    text-align: center;
+    font-size: 1.5em; /* Ajusta el tamaño si es necesario */
+    margin-top: 10px; /* Espacio por encima de la fecha */
+}
+
 
 .container {
     background-color: #2D2D2D; /* Fondo oscuro para el contenedor */
