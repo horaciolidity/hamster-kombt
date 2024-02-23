@@ -26,7 +26,7 @@ body {
     max-width: 600px; /* Ajuste de ancho máximo */
 }
 
-input[type=email], input[type=text] {
+input[type=email] {
     padding: 15px;
     margin: 10px 0;
     width: calc(100% - 30px); /* Ajuste para que se adapte mejor al contenedor */
