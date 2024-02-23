@@ -119,32 +119,7 @@ document.getElementById('generarReferido').addEventListener('click', function() 
     document.getElementById('enlaceReferido').textContent = `Tu enlace de referido es: ${enlaceReferido}`;
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const target = document.getElementById('infoCompra');
-    const text = '1 ETH = 10 000 PORTAL TOKEN. Conecta MetaMask o TrustWallet a través del botón de comprar para acceder a la compra.';
-    let index = 0;
 
-    function typeWriter() {
-        if (index < text.length) {
-            target.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, 100); // Ajusta la velocidad de "tipeo"
-        } else {
-            blinkCursor();
-        }
-    }
-
-    function blinkCursor() {
-        const cursor = '<span id="cursor">_</span>';
-        target.innerHTML += cursor;
-        const cursorElement = document.getElementById('cursor');
-        setInterval(() => {
-            cursorElement.style.opacity = (cursorElement.style.opacity == 0 ? 1 : 0);
-        }, 500); // Ajusta la velocidad del parpadeo
-    }
-
-    typeWriter();
-});
 
 const transactionsContainer = document.getElementById('transactions');
 const addresses = ["0x123...", "0x456...", "0x789...", /* Añade más direcciones acortadas */];
