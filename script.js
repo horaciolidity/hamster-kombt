@@ -146,40 +146,28 @@ document.addEventListener('DOMContentLoaded', function() {
     typeWriter();
 });
 
-const addresses = [
-  "0x123...", "0x234...", "0x345...", "0x456...",
-  "0x567...", "0x678...", "0x789...", "0x890...",
-  "0x901...", "0xABC...", "0xBCD...", "0xCDE...",
-  "0xDEF...", "0xEFG..."
-];
+const transactionsContainer = document.getElementById('transactions');
+const addresses = ["0x123...", "0x456...", "0x789...", /* Añade más direcciones acortadas */];
+const liquidityBar = document.getElementById('liquidityBar');
 
-function getRandomTransactions() {
-  const selectedIndexes = [];
-  while(selectedIndexes.length < 3) {
-    const randomIndex = Math.floor(Math.random() * addresses.length);
-    if (!selectedIndexes.includes(randomIndex)) {
-      selectedIndexes.push(randomIndex);
-    }
+function addTransaction() {
+  if(transactionsContainer.children.length >= 7) {
+    transactionsContainer.removeChild(transactionsContainer.lastChild);
   }
-
-  return selectedIndexes.map(index => addresses[index]);
+  const transactionElem = document.createElement('div');
+  transactionElem.classList.add('transaction');
+  const randomAddressIndex = Math.floor(Math.random() * addresses.length);
+  const randomEth = (Math.random() * 5).toFixed(3);
+  transactionElem.textContent = `Compra: ${randomEth} ETH en ${addresses[randomAddressIndex]}`;
+  transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
 }
 
-function updateTransactions() {
-  const transactionsContainer = document.getElementById('transactions');
-  transactionsContainer.innerHTML = ''; // Limpiar el contenedor de transacciones
-
-  const transactions = getRandomTransactions();
-  transactions.forEach(address => {
-    const transactionElement = document.createElement('div');
-    transactionElement.classList.add('transaction');
-    transactionElement.textContent = `Transacción de: ${address}`;
-    transactionsContainer.appendChild(transactionElement);
-  });
+// Actualiza la barra de liquidez
+function updateLiquidityBar() {
+  const newWidth = 10 + Math.random() * 5; // Entre 10% y 15%
+  liquidityBar.style.width = `${newWidth}%`;
 }
 
-// Actualizar las transacciones cada 5 segundos
-setInterval(updateTransactions, 5000);
-
-// Iniciar manualmente la primera actualización
-updateTransactions();
+// Iniciar simulaciones
+setInterval(addTransaction, 2000); // Añade una transacción cada 2 segundos
+setInterval(updateLiquidityBar, 5000); // Actualiza la barra de liquidez cada 5 segundos
