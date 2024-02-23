@@ -35,6 +35,10 @@ input[type=email], input[type=text] {
     background-color: #333; /* Fondo oscuro para inputs */
     color: #fff; /* Texto claro */
 }
+.input-angosto {
+    width: 250px; /* Más angosto que el valor predeterminado */
+}
+
 
 button {
     padding: 12px 25px;
@@ -126,3 +130,37 @@ input[type=email]:focus, input[type=text]:focus {
     font-size: 0.75rem; /* Tamaño de fuente reducido para los textos */
     display: block; /* Asegura que el texto se muestre debajo del número */
 }
+#launchpad-fecha {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #BB86FC;
+    margin: 20px 0;
+}
+
+#comprarPortalToken {
+    background-color: #4CAF50; /* O cualquier color que prefieras */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+#comprarPortalToken:hover {
+    background-color: #43a047; /* Un tono más oscuro para el efecto hover */
+}
+
+#infoCompra {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.input-angosto {
+    width: 250px; /* Más angosto que el valor predeterminado */
+}
+
+
