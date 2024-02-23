@@ -121,15 +121,14 @@ document.getElementById('generarReferido').addEventListener('click', function() 
 
 
 
-// Simulación de las transacciones
 const transactionsContainer = document.getElementById('transactions');
-const addresses = ["0x123...", "0x456...", "0x789..."]; // Añade más direcciones acortadas según necesites
+const addresses = ["0x123...", "0x456...", "0x789...", /* Puedes añadir más direcciones acortadas aquí */];
 const liquidityBar = document.getElementById('liquidityBar');
 
 function addTransaction() {
-  // Asegurar que solo se muestren las últimas 3 transacciones
-  if (transactionsContainer.children.length >= 3) {
-    transactionsContainer.removeChild(transactionsContainer.lastChild);
+  // Asegurarse de que solo se mantengan las últimas 3 transacciones
+  while (transactionsContainer.children.length >= 3) {
+    transactionsContainer.removeChild(transactionsContainer.lastChild); // Elimina la última transacción
   }
 
   const transactionElem = document.createElement('div');
@@ -137,18 +136,22 @@ function addTransaction() {
   const randomAddressIndex = Math.floor(Math.random() * addresses.length);
   const randomEth = (Math.random() * 5).toFixed(3);
   transactionElem.innerHTML = `Compra: ${randomEth} ETH en ${addresses[randomAddressIndex]}`;
-  transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
+  // Inserta la nueva transacción al principio
+  if (transactionsContainer.firstChild) {
+    transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
+  } else {
+    transactionsContainer.appendChild(transactionElem);
+  }
 
-  // Aplicar animación a la última transacción agregada
-  transactionElem.style.animation = 'ascender 0.5s ease-out';
+  // Este enfoque asume que quieres que las nuevas transacciones aparezcan en la parte superior y las antiguas se eliminen
 }
 
 // Actualiza la barra de liquidez
 function updateLiquidityBar() {
-  const newWidth = 10 + Math.random() * 5; // Oscila entre 10% y 15%
+  const newWidth = 10 + Math.random() * 5; // Entre 10% y 15%
   liquidityBar.style.width = `${newWidth}%`;
 }
 
 // Iniciar simulaciones
-setInterval(addTransaction, 2000); // Añade una transacción cada 2 segundos
+setInterval(addTransaction, 2000); // Añade una nueva transacción cada 2 segundos
 setInterval(updateLiquidityBar, 5000); // Actualiza la barra de liquidez cada 5 segundos
