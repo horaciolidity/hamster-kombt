@@ -12,23 +12,27 @@ body {
 }
 
 .header h1 {
-    color: #fff; /* Ajusta el color según tu preferencia */
+    color: #E8E8E8; /* Color claro para destacar el título principal */
     text-align: center;
-    font-size: 2.5em; /* Ajusta el tamaño según necesites */
+    font-size: 2.5em; /* Tamaño grande para darle importancia */
+    margin-bottom: 0.5em; /* Espacio debajo del título para separarlo del subtítulo */
 }
 
 .header h2 {
-    color: #ccc; /* Ajusta el color para que se distinga del H1 */
+    color: #CCCCCC; /* Un gris más suave para diferenciar del título principal */
     text-align: center;
-    font-size: 2em; /* Ajusta el tamaño según necesites */
+    font-size: 2em; /* Tamaño ligeramente más pequeño que el título principal */
+    margin-bottom: 0.25em; /* Espacio reducido debajo del subtítulo */
 }
 
 .header div {
-    color: #aaa; /* Ajusta el color según tu preferencia */
+    color: #AAAAAA; /* Un gris aún más suave para los detalles, como la fecha */
     text-align: center;
-    font-size: 1.5em; /* Ajusta el tamaño si es necesario */
-    margin-top: 10px; /* Espacio por encima de la fecha */
+    font-size: 1.25em; /* Un tamaño adecuado para la información complementaria */
+    margin-top: 10px; /* Espacio por encima para no estar demasiado pegado al subtítulo */
+    font-weight: 400; /* Un peso de fuente normal para no competir con los títulos */
 }
+
 
 
 .container {
