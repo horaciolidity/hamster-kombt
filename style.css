@@ -69,6 +69,8 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra más profunda para un efecto 3D */
     text-align: center;
     max-width: 600px; /* Ajuste de ancho máximo */
+    display: flex;
+    flex-direction: column;
 }
 
 input[type=email] {
@@ -103,6 +105,8 @@ button:hover {
 
 #enviar {
     background-color: #6200EE; /* Color más vibrante */
+    order: 1;
+
 }
 
 #conectarMetaMask {
@@ -197,10 +201,11 @@ input[type=email]:focus, input[type=text]:focus {
 }
 
 #infoCompra {
-    color: #e0e0e0;
-    font-size: 0.9rem;
-    text-align: center;
-    margin-top: 20px;
+   font-family: 'Press Start 2P', cursive; /* Fuente con estilo de computadora vieja */
+    color: limegreen; /* Color verde brillante típico de las pantallas antiguas */
+    font-size: 16px; /* Ajusta al tamaño que prefieras */
+    white-space: pre; /* Mantiene espacios y saltos de línea */
+    order: 2;
 }
 
 
