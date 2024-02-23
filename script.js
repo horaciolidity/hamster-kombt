@@ -72,6 +72,16 @@ document.getElementById('enviar').addEventListener('click', function() {
     });
 });
 
+window.onload = function() {
+  document.getElementById("popupBanner").style.visibility = "visible";
+};
+
+document.getElementById("cerrarPopup").onclick = function() {
+  document.getElementById("popupBanner").style.visibility = "hidden";
+};
+
+
+
 function updateCountdown() {
     const launchDate = new Date("February 29, 2024 00:00:00").getTime();
     const now = new Date().getTime();
