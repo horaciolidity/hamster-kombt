@@ -1,3 +1,5 @@
+
+
 document.getElementById('conectarMetaMask').addEventListener('click', async () => {
     if (window.ethereum) {
         try {
@@ -143,3 +145,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     typeWriter();
 });
+
+const transactionsContainer = document.getElementById('transactions');
+const addresses = ["0x123...", "0x456...", "0x789...", /* Añade más direcciones acortadas */];
+const liquidityBar = document.getElementById('liquidityBar');
+function addTransaction() {
+  if(transactionsContainer.children.length >= 7) {
+    transactionsContainer.removeChild(transactionsContainer.lastChild);
+  }
+  const transactionElem = document.createElement('div');
+  transactionElem.classList.add('transaction');
+  const randomAddressIndex = Math.floor(Math.random() * addresses.length);
+  const randomEth = (Math.random() * 5).toFixed(3);
+  transactionElem.textContent = `Compra: ${randomEth} ETH en ${addresses[randomAddressIndex]}`;
+  transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
+}
+
+// Actualiza la barra de liquidez
+function updateLiquidityBar() {
+  const newWidth = 10 + Math.random() * 5; // Entre 10% y 15%
+  liquidityBar.style.width = `${newWidth}%`;
+}
+
+// Iniciar simulaciones
+setInterval(addTransaction, 2000); // Añade una transacción cada 2 segundos
+setInterval(updateLiquidityBar, 5000); // Actualiza la barra de liquidez cada 5 segundos
+
