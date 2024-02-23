@@ -10,6 +10,12 @@ body {
     height: 100vh;
     flex-direction: column;
 }
+.header {
+    width: 100%; /* Asegura que el header ocupe todo el ancho */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+    padding: 0 20px; /* Agrega un poco de padding a los lados si es necesario */
+    overflow: hidden; /* Asegúrate de que el contenido no desborde */
+}
 
 .header h1 {
     color: #E8E8E8; /* Color claro para destacar el título principal */
