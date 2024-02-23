@@ -20,6 +20,33 @@ body {
         margin: 0 auto; /* Asegura centrado y evita el corte */
         width: fit-content; /* Ajusta el ancho al contenido */
     }
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.date-part {
+    animation: pulse 2s infinite;
+    display: inline-block; /* Esto permite que el retraso de animación funcione correctamente. */
+}
+
+.date-part:nth-child(1) {
+    animation-delay: 0s; /* Sin retraso para el día */
+}
+
+.date-part:nth-child(2) {
+    animation-delay: 0.5s; /* Medio segundo de retraso para el mes */
+}
+
+.date-part:nth-child(3) {
+    animation-delay: 1s; /* Un segundo de retraso para el año */
+}
+
     .header h1 {
         color: #8A2BE2; /* Ajuste a un violeta vibrante */
         font-size: 2.5em;
