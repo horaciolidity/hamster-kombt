@@ -101,29 +101,28 @@ input[type=email]:focus, input[type=text]:focus {
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espacio entre los elementos del temporizador */
-    padding: 20px;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    gap: 10px; /* Reducir el espacio entre los elementos del temporizador */
+    padding: 10px;
+    background-color: #333; /* Fondo para el contenedor general */
+    border-radius: 10px; /* Bordes redondeados para el contenedor general */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra para el contenedor general */
 }
 
 .time-box {
     text-align: center;
-    background-color: #333; /* Color de fondo de cada caja del tiempo */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 10px 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    background-color: transparent; /* Fondo transparente para cada caja de tiempo */
+    padding: 5px 10px; /* Padding reducido para cada caja de tiempo */
 }
 
 .time-number {
-    color: #BB86FC; /* Color vibrante para los números */
-    font-size: 2rem; /* Tamaño grande para fácil lectura */
-    font-weight: 500; /* Peso de la fuente */
-    margin: 0; /* Remover margen predeterminado */
+    color: #BB86FC; /* Color para los números */
+    font-size: 1.25rem; /* Tamaño de fuente reducido para los números */
+    font-weight: 500;
+    margin: 0;
 }
 
 .time-box span {
-    color: #e0e0e0; /* Color claro para el texto */
-    font-weight: 400; /* Peso normal de la fuente */
+    color: #e0e0e0; /* Color para los textos de días, horas, etc. */
+    font-size: 0.75rem; /* Tamaño de fuente reducido para los textos */
+    display: block; /* Asegura que el texto se muestre debajo del número */
 }
-
-
