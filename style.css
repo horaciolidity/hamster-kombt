@@ -4,12 +4,11 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #121212;
     color: #e0e0e0;
-    /* Removido para permitir que el contenido defina la altura */
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
-    /* flex-direction: column; */
-    overflow-x: hidden; /* Previene el desbordamiento horizontal */
+    align-items: center; 
+     flex-direction: column; 
+    overflow-x: hidden;
     min-height: 100vh; /* Mínimo de altura de pantalla completa */
     }
  .header {
