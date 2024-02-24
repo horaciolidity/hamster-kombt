@@ -276,17 +276,18 @@ input[type=email]:focus, input[type=text]:focus {
         text-shadow: 0 0 15px #00ced1, 0 0 20px #00ced1; /* Estado final de la sombra, más intenso */
     }
 }
-/* Estilos Generales */
 .dashboard {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #FFFFFF; /* Cambio a texto blanco para contraste */
+  color: #FFFFFF; /* Texto blanco para contraste */
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background: linear-gradient(145deg, #23272A 0%, #2C2F33 100%); /* Gradiente oscuro */
+  background: linear-gradient(145deg, rgba(35, 39, 42, 0.8) 0%, rgba(44, 47, 51, 0.8) 100%); /* Gradiente oscuro con transparencia */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  backdrop-filter: blur(5px); /* Añade desenfoque al fondo para un efecto de vidrio */
 }
+
 
 
 h2 {
