@@ -1,17 +1,11 @@
- body {
-        margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    /* Removido para permitir que el contenido defina la altura */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* flex-direction: column; */
-    overflow-x: hidden; /* Previene el desbordamiento horizontal */
-    min-height: 100vh; /* Mínimo de altura de pantalla completa */
-    }
+html, body {
+  height: 100%; /* Asegura que el body tome el alto completo de la página */
+  margin: 0; /* Remueve el margen predeterminado */
+  display: flex; /* Habilita Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  background-color: #f0f0f0; /* Color de fondo para el body, cambia a tu gusto */
+}
  .header {
        position: fixed; /* Fijo en la parte superior */
     top: 0; /* Alineado al tope */
@@ -66,14 +60,13 @@
 
 
 .container {
-    background-color: #2D2D2D; /* Fondo oscuro para el contenedor */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra más profunda para un efecto 3D */
-    text-align: center;
-    max-width: 600px; /* Ajuste de ancho máximo */
-    padding-top: 100px;
-    
+  background-color: #2D2D2D; /* Fondo oscuro para el contenedor */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra más profunda para un efecto 3D */
+  text-align: center;
+  max-width: 600px; /* Ajuste de ancho máximo */
+  padding-top: 100px;
 }
 .main-content {
     overflow-y: auto; /* Habilita scroll vertical si el contenido es muy largo */
