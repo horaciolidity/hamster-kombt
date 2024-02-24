@@ -279,14 +279,15 @@ input[type=email]:focus, input[type=text]:focus {
 /* Estilos Generales */
 .dashboard {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2D2D2D;
+  color: #FFFFFF; /* Cambio a texto blanco para contraste */
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background: grey;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #23272A 0%, #2C2F33 100%); /* Gradiente oscuro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
+
 
 h2 {
   color: #007bff;
