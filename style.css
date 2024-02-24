@@ -1,96 +1,353 @@
-/* Estilos Generales */
-body, html {
-    margin: 0;
+body {
+        margin: 0;
     padding: 0;
-    width: 100%;
     font-family: 'Poppins', sans-serif;
-    background-color: #1a1a1a; /* Fondo oscuro para toda la página */
-    color: #ffffff; /* Texto en color blanco */
-    overflow-x: hidden; /* Previene desbordamiento horizontal */
+    background-color: #121212;
+    color: #e0e0e0;
+    /* Removido para permitir que el contenido defina la altura */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* flex-direction: column; */
+    overflow-x: hidden; /* Previene el desbordamiento horizontal */
+    min-height: 100vh; /* Mínimo de altura de pantalla completa */
+    }
+ .header {
+       position: fixed; /* Fijo en la parte superior */
+    top: 0; /* Alineado al tope */
+    z-index: 10; /* Sobre el contenido principal */
+    background-color: #121212; /* Fondo para asegurar legibilidad */
+    width: 100%;
+    }
+    .header h1, .header h2, .header div {
+        margin: 0 auto; /* Asegura centrado y evita el corte */
+        width: fit-content; /* Ajusta el ancho al contenido */
+    }
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
 }
 
-/* Header Fijo en la Parte Superior */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333; /* Fondo oscuro del header */
-    color: #fff;
-    text-align: center;
-    z-index: 10; /* Asegura que el header está sobre los otros elementos */
-    padding: 15px 0; /* Espaciado interno arriba y abajo */
+.date-part {
+    animation: pulse 2s infinite;
+    display: inline-block; /* Esto permite que el retraso de animación funcione correctamente. */
 }
+
+.date-part:nth-child(1) {
+    animation-delay: 0s; /* Sin retraso para el día */
+}
+
+.date-part:nth-child(2) {
+    animation-delay: 0.5s; /* Medio segundo de retraso para el mes */
+}
+
+.date-part:nth-child(3) {
+    animation-delay: 1s; /* Un segundo de retraso para el año */
+}
+
+    .header h1 {
+        color: #8A2BE2; /* Ajuste a un violeta vibrante */
+        font-size: 2.5em;
+    }
+    .header h2 {
+        color: #7B68EE; /* Ajuste a un violeta más claro */
+        font-size: 2em;
+    }
+    .header div {
+        color: #DDA0DD; /* Ajuste a un violeta pastel */
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
+
 
 .container {
-    padding-top: 100px; /* Espacio en la parte superior para evitar solapamiento con el header */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  background-color: #2D2D2D; /* Fondo oscuro para el contenedor */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra más profunda para un efecto 3D */
+  text-align: center;
+  max-width: 600px; /* Ajuste de ancho máximo */
+  padding-top: 100px;
+}
+.main-content {
+    overflow-y: auto; /* Habilita scroll vertical si el contenido es muy largo */
+    padding-bottom: 20px; /* Espacio adicional en el fondo */
 }
 
-/* Estilos para botones, inputs y textos */
-input[type="email"], input[type="text"], button {
-    width: 80%; /* Ancho relativo para responsividad */
-    max-width: 500px; /* Ancho máximo para grandes pantallas */
-    padding: 10px;
-    margin: 10px 0; /* Margen para separar elementos */
-    border-radius: 5px; /* Bordes redondeados */
-    border: 1px solid #7d6767; /* Borde sutil */
-    background-color: #a58a8a; /* Fondo de los inputs */
-    color: #fff; /* Color del texto */
+input[type=email] {
+    padding: 15px;
+    margin: 10px 0;
+    width: calc(100% - 30px); /* Ajuste para que se adapte mejor al contenedor */
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #333; /* Fondo oscuro para inputs */
+    color: #fff; /* Texto claro */
 }
+.input-angosto {
+    width: 250px; /* Más angosto que el valor predeterminado */
+}
+
 
 button {
-    background-color: #BB86FC; /* Color de fondo para botones */
-    color: #333; /* Color de texto para botones */
-    cursor: pointer; /* Cursor en forma de mano al pasar sobre botón */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    background-color: #3d3d3d; /* Color de fondo neutral */
+    transition: background-color 0.3s ease; /* Transición suave */
+    font-weight: 500; /* Peso de la fuente */
+    margin-top: 15px; /* Margen superior */
 }
 
 button:hover {
-    opacity: 0.8; /* Efecto al pasar el cursor sobre botones */
+    background-color: #575757; /* Cambio de color al pasar el ratón */
 }
 
-/* Popup */
-#popupBanner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+#enviar {
+    background-color: #6200EE; /* Color más vibrante */
+    order: 1;
+
+}
+
+#conectarMetaMask {
+    background-color: #1A1A1A; /* Color más oscuro */
+    margin: 20px 0;
+}
+
+#conectarMetaMask:hover {
+    background-color: #424242; /* Color al pasar el ratón */
+}
+
+#generarReferido {
+    background-color: #03DAC6; /* Color más vibrante */
+}
+
+#contador {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.info {
+    margin-bottom: 20px;
+    font-size: 1rem; /* Tamaño de la fuente */
+}
+
+/* Agregar transiciones suaves para los inputs también */
+input[type=email]:focus, input[type=text]:focus {
+    border-color: #BB86FC;
+    outline: none; /* Eliminar el outline predeterminado */
+}
+
+/* Mejorar la visibilidad del texto del placeholder */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ddd;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ddd;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #ddd;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #ddd;
+}
+#countdown {
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 20; /* Sobre otros elementos, incluido el header */
+    gap: 10px; /* Reducir el espacio entre los elementos del temporizador */
+    padding: 10px;
+    background-color: #333; /* Fondo para el contenedor general */
+    border-radius: 10px; /* Bordes redondeados para el contenedor general */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra para el contenedor general */
+}
+
+.time-box {
+    text-align: center;
+    background-color: transparent; /* Fondo transparente para cada caja de tiempo */
+    padding: 5px 10px; /* Padding reducido para cada caja de tiempo */
+}
+
+.time-number {
+    color: #BB86FC; /* Color para los números */
+    font-size: 1.25rem; /* Tamaño de fuente reducido para los números */
+    font-weight: 500;
+    margin: 0;
+}
+
+.time-box span {
+    color: #e0e0e0; /* Color para los textos de días, horas, etc. */
+    font-size: 0.75rem; /* Tamaño de fuente reducido para los textos */
+    display: block; /* Asegura que el texto se muestre debajo del número */
+}
+#launchpad-fecha {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #BB86FC;
+    margin: 20px 0;
+}
+
+#comprarPortalToken {
+    background-color: #4CAF50; /* O cualquier color que prefieras */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+#comprarPortalToken:hover {
+    background-color: #43a047; /* Un tono más oscuro para el efecto hover */
+}
+
+#infoCompra {
+   font-family: 'Press Start 2P', cursive; /* Fuente con estilo de computadora vieja */
+    color: limegreen; /* Color verde brillante típico de las pantallas antiguas */
+    font-size: 16px; /* Ajusta al tamaño que prefieras */
+    white-space: pre; /* Mantiene espacios y saltos de línea */
+    order: 2;
+}
+
+
+.input-angosto {
+    width: 250px; /* Más angosto que el valor predeterminado */
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que el popup esté sobre otros elementos */
+  visibility: hidden; /* Oculta el popup inicialmente */
 }
 
 .popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    color: #333; /* Texto oscuro para contraste */
+  text-align: center;
 }
 
-/* Cerrar Popup */
+.popup-content img {
+  max-width: 80%; /* Ajusta este valor según necesites */
+  max-height: 80vh; /* Limita la altura de la imagen */
+}
+
 #cerrarPopup {
-    margin-top: 20px; /* Espacio arriba del botón */
-    background-color: #f44336; /* Rojo para indicar acción de cerrar */
-    color: #fff;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4CAF50; /* Ajusta el color según tu diseño */
+  color: white;
 }
 
-/* Ajustes para el Dashboard */
-.dashboard, .transactions, .liquidity-bar-container, .liquidity-bar {
-    width: 90%; /* Ancho para responsividad */
-    max-width: 600px; /* Ancho máximo */
-    margin: 20px auto; /* Centrado con margen */
+.banner-top {
+    position: fixed; /* O usa 'absolute' si prefieres que se mueva con el scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-image: url('https://portal-launchpad.vercel.app/portal.jpg'); /* Cambia esto por la ruta de tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra completamente el div */
+    background-position: center; /* Centra la imagen en el div */
+    z-index: -1; /* Coloca el div detrás de todo el contenido */
+}
+.launch-date {
+    color: #fff; /* Color del texto */
+    text-shadow: 0 0 8px #00ced1; /* Sombra inicial en turquesa */
+    animation: glow 1.5s infinite alternate; /* Animación de brillo */
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 8px #00ced1, 0 0 12px #00ced1; /* Estado inicial de la sombra */
+    }
+    to {
+        text-shadow: 0 0 15px #00ced1, 0 0 20px #00ced1; /* Estado final de la sombra, más intenso */
+    }
+}
+/* Estilos Generales */
+.dashboard {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h2 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el Panel de Transacciones */
+.transactions {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ffffff, #f1f1f1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: auto;
+  max-height: 300px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.transaction:hover {
+  transform: translateY(-2px);
+}
+
+/* Estilos para la Barra de Pool de Liquidez */
+.liquidity-bar-container {
+  position: relative;
+  height: 40px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
 }
 
 .liquidity-bar {
-    height: 20px;
-    background-color: #4CAF50; /* Verde para la barra de liquidez */
-    width: 50%; /* Ajustar según la liquidez actual */
-    border-radius: 5px; /* Bordes redondeados */
+  background-color: #4CAF50;
+  background-image: linear-gradient(45deg, #4CAF50 25%, #67b548 25%, #67b548 50%, #4CAF50 50%, #4CAF50 75%, #67b548 75%, #67b548);
+  background-size: 40px 40px;
+  height: 100%;
+  width: 0%;
+  border-radius: 20px;
+  transition: width 2s ease;
+  animation: moveBackground 2s linear infinite;
+}
+
+@keyframes moveBackground {
+  from {background-position: 0 0;}
+  to {background-position: 40px 0;}
 }
