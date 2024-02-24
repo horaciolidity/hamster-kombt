@@ -12,7 +12,6 @@ body {
     min-height: 100vh; /* Mínimo de altura de pantalla completa */
     }
  .header {
-       position: fixed; /* Fijo en la parte superior */
     top: 0; /* Alineado al tope */
     z-index: 10; /* Sobre el contenido principal */
     background-color: #121212; /* Fondo para asegurar legibilidad */
