@@ -153,5 +153,5 @@ function updateLiquidityBar() {
 }
 
 // Iniciar simulaciones
-setInterval(addTransaction, 2000); // Añade una nueva transacción cada 2 segundos
-setInterval(updateLiquidityBar, 5000); // Actualiza la barra de liquidez cada 5 segundos
+setInterval(addTransaction, 7000); // Añade una nueva transacción cada 2 segundos
+setInterval(updateLiquidityBar, 8000); // Actualiza la barra de liquidez cada 5 segundos
