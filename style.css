@@ -294,34 +294,37 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Estilos para el Panel de Transacciones */
 .transactions {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: 5px;
-  background: linear-gradient(to right, #ffffff, #f1f1f1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  overflow: auto;
-  max-height: 300px;
+    width: 100%;
+    background: linear-gradient(145deg, #23272A 0%, #2C2F33 100%); /* Gradiente oscuro para el fondo */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    margin-top: 20px;
+    overflow: auto;
+    max-height: 300px;
 }
 
 .transaction {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin: 5px 0;
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background: #2C2F33; /* Fondo para cada transacción */
+    border: 1px solid #343746; /* Bordes sutiles */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .transaction:hover {
-  transform: translateY(-2px);
+    background-color: #3B3F45; /* Cambio sutil al pasar el mouse */
+    transform: translateY(-2px);
 }
+
 
 /* Estilos para la Barra de Pool de Liquidez */
 .liquidity-bar-container {
