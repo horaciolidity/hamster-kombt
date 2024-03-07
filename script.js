@@ -85,29 +85,31 @@ document.getElementById("cerrarPopup").onclick = function() {
 
 
 function updateCountdown() {
-    const launchDate = new Date("February 29, 2024 00:00:00").getTime();
+    const endDate = new Date("March 13, 2024 00:00:00").getTime();
     const now = new Date().getTime();
-    const difference = launchDate - now;
+    let difference = endDate - now;
+
+    // Verificar si la fecha lÃ­mite ha pasado
+    if (difference <= 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "La fecha lÃ­mite ha pasado";
+        return;
+    }
 
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown-days").innerHTML = days + " días ";
+    document.getElementById("countdown-days").innerHTML = days + " dÃ­as ";
     document.getElementById("countdown-hours").innerHTML = hours + " horas ";
     document.getElementById("countdown-minutes").innerHTML = minutes + " minutos ";
     document.getElementById("countdown-seconds").innerHTML = seconds + " segundos ";
-
-    if (difference < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "El lanzamiento ha ocurrido";
-    }
 }
 
+// Iniciar el contador
 updateCountdown();
 const x = setInterval(updateCountdown, 1000);
-
 document.getElementById('generarReferido').addEventListener('click', function() {
     const walletAddress = document.getElementById('walletAddress').value;
     if(walletAddress === '') {
