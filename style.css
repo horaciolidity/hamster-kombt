@@ -115,7 +115,7 @@ button:hover {
 }
 
 #conectarMetaMask {
-    background-color: #1A1A1A; /* Color más oscuro */
+    background-color: red; /* Color más oscuro */
     margin: 20px 0;
 }
 
